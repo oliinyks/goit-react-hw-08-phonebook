@@ -1,6 +1,5 @@
-import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { GlobalStyle } from 'constants/GlobalStyle';
 import Footer from '../Footer';
 import { ToastContainer } from 'react-toastify';
@@ -12,15 +11,13 @@ export default function SharedLayout() {
       <div>
         <header>
           <nav>
-            <Link to="/" end>
-              Home
-            </Link>
+            <Link to="/" end> Home</Link>
             <Link to="/contacts">Contacts</Link>
             <Link to="/login">Lodin</Link>
             <Link to="/register">Register</Link>
           </nav>
         </header>
-        <Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
         <GlobalStyle />

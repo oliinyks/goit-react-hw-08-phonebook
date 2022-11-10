@@ -12,9 +12,9 @@ export default function App() {
       <Routes>
         <Route path="/" elememt={<SharedLayout />}>
           <Route index element={<Home />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="contacts" element={<Contacts />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>
