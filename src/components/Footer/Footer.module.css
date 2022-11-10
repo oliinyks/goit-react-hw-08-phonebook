@@ -1,0 +1,11 @@
+.box{
+	border-top: 1px solid black;
+	height: 60px;
+	text-align: center;
+	padding: 20px;
+}
+
+.link{
+	color: black;
+	margin-left: 5px;
+}
