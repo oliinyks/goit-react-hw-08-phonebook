@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <>
+    <div className={css.box}>
 	 <Link to="/contacts">
 	 <h1 className={css.title}>Phonebook
 	 <span>Phonebook</span>
@@ -23,6 +23,6 @@ export default function Home() {
           alt="phone"
         />
       </div>
-    </>
+    </div>
   );
 }

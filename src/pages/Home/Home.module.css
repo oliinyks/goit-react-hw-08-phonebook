@@ -1,5 +1,8 @@
+.box{
+	position: relative;
+	overflow: hidden;
+}
 .imgBox {
-  margin: 10px 0;
   display: flex;
   justify-content: center;
 }
@@ -14,6 +17,9 @@
   color: transparent;
 }
 @media (min-width: 700px) {
+	.imgBox {
+		margin: 10px 0;
+	}
 	h1 span:nth-child(1) {
 		position: absolute;
 		top: 0;
