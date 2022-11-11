@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/119.938b3838.chunk.js","mappings":"sMAAe,SAASA,IACvB,OACC,uCAID,C","sources":["pages/Login/Login.jsx"],"sourcesContent":["export default function Login() {\n\treturn (\n\t\t<>\n\t\tLogin\n\t\t</>\n\t)\n}"],"names":["Login"],"sourceRoot":""}
