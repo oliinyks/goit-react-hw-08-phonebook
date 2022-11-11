@@ -5,7 +5,7 @@ import {
 } from 'redux/ContactSlice';
 import Button from 'components/CommonComponents/Button'
 import { nanoid } from 'nanoid';
-import Notiflix from 'notiflix';
+import { toast } from 'react-toastify';
 import css from './Form.module.css';
 
 export default function Form() {
@@ -41,7 +41,7 @@ export default function Form() {
       contactName => contactName.toLowerCase() === name.toLowerCase()
     );
     if (filterName) {
-      return Notiflix.Notify.failure(
+      return toast.error(
         'You already have a contact with that name'
       );
     }
@@ -53,7 +53,7 @@ export default function Form() {
     };
 
     createContact(newContact);
-    Notiflix.Notify.success('You have just created a new contact');
+    toast.success('You have just created a new contact');
 
     reset();
   };

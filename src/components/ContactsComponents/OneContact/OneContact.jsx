@@ -1,5 +1,5 @@
 import React from 'react';
-import Notiflix from 'notiflix';
+import { toast } from 'react-toastify';
 import { useDeleteContactMutation } from 'redux/ContactSlice';
 import css from './OneContact.module.css';
 import { GiSandsOfTime } from 'react-icons/gi';
@@ -10,7 +10,7 @@ export default function OneContact({ id, name, number }) {
 
   const deleteContacts = contactId => {
     deleteContact(contactId);
-    Notiflix.Notify.success('You have just deleted a contact');
+    toast.success('You have just deleted a contact');
   };
 
   return (

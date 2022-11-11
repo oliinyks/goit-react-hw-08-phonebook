@@ -13,59 +13,69 @@
   cursor: pointer;
   color: transparent;
 }
-
-h1 span:nth-child(1) {
-	position: absolute;
-	top: 0;
-	left: 0;
-	transition: 0.5s;
-	clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
-	overflow: hidden;
-
-	color: #fff;
-	background-color: rgb(76, 75, 75);
-}
-
-
-h1:hover span:nth-child(1) {
-	transform: translateY(-18px);
-}
-h1 span:nth-child(2) {
-	position: absolute;
-	top: 0;
-	left: 0;
-	transition: 0.5s;
-	clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
-	overflow: hidden;
-
-	color: #fff;
-	background-color: rgb(76, 75, 75);
-}
-h1:hover span:nth-child(2) {
-	transform: translateY(18px);
-}
-
-h1 span:nth-child(3) {
-	position: absolute;
-	top: 50%;
-	left: 0;
-	transform: translateY(-50%) scaleY(0);
-	width: 91%;
-	color: #000;
-	background: #fff;
-	font-size: 0.35em;
-	text-align: center;
-	padding-left: 20px;
-	margin-left: 5px;
-	transition: 0.5s;
-}
-h1:hover span:nth-child(3) {
-transform: translateY(-50%) scaleY(1);
+@media (min-width: 700px) {
+	h1 span:nth-child(1) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: 0.5s;
+		clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+		overflow: hidden;
+	
+		color: #fff;
+		background-color: rgb(76, 75, 75);
+	}
+	
+	
+	h1:hover span:nth-child(1) {
+		transform: translateY(-18px);
+	}
+	h1 span:nth-child(2) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: 0.5s;
+		clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+		overflow: hidden;
+	
+		color: #fff;
+		background-color: rgb(76, 75, 75);
+	}
+	h1:hover span:nth-child(2) {
+		transform: translateY(18px);
+	}
+	
+	h1 span:nth-child(3) {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%) scaleY(0);
+		width: 91%;
+		color: #000;
+		background: #fff;
+		font-size: 0.35em;
+		text-align: center;
+		padding-left: 20px;
+		margin-left: 5px;
+		transition: 0.5s;
+	}
+	h1:hover span:nth-child(3) {
+	transform: translateY(-50%) scaleY(1);
+	}
 }
 
 @media (max-width: 700px) {
   .img + .img {
     display: none;
+  }
+  .title{
+	color: #fff;
+  }
+  h1 span:nth-child(2){
+	margin-left: 10px;
+  }
+  h1 span:nth-child(1){
+	margin-left: 10px;
   }
 }
 
@@ -76,3 +86,4 @@ transform: translateY(-50%) scaleY(1);
 .img {
   height: 100vh;
 }
+

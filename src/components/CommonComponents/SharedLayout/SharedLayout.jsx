@@ -24,7 +24,7 @@ export default function SharedLayout() {
       </div>
 
       <Footer />
-      <ToastContainer theme="dark" autoClose={3000} />
+      <ToastContainer theme="dark" autoClose={3000} pauseOnFocusLoss={false} toastStyle={{ backgroundColor: "rgb(76, 75, 75)" }}/>
     </>
   );
 }
