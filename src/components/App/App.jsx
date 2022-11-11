@@ -1,6 +1,6 @@
-import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import SharedLayout from '../SharedLayout';
+import { Route, Routes } from 'react-router-dom';
+import SharedLayout from '../CommonComponents/SharedLayout';
 
 const Home = lazy(() => import('pages/Home'));
 const Login = lazy(() => import('pages/Login'));
@@ -10,8 +10,8 @@ const Contacts = lazy(() => import('pages/Contacts'));
 export default function App() {
   return (
       <Routes>
-        <Route path="/" elememt={<SharedLayout />}>
-          <Route index element={<Home />} />
+        <Route path="/" element={<SharedLayout />}>
+          <Route path="/" element={<Home />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />

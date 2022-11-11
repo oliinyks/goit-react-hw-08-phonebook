@@ -2,6 +2,8 @@ import React from 'react';
 import Notiflix from 'notiflix';
 import { useDeleteContactMutation } from 'redux/ContactSlice';
 import css from './OneContact.module.css';
+import { GiSandsOfTime } from 'react-icons/gi';
+import { BsXCircle } from 'react-icons/bs';
 
 export default function OneContact({ id, name, number }) {
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
@@ -17,11 +19,11 @@ export default function OneContact({ id, name, number }) {
         {name}: {number}
       </p>
       <button
-        className={css.button}
         type="button"
+		  className={css.button}
         onClick={() => deleteContacts(id)}
       >
-        {isDeleting ? 'Deleting...' : 'Delete'}
+        {isDeleting ? <GiSandsOfTime/> :  <BsXCircle/>}
       </button>
     </li>
   );

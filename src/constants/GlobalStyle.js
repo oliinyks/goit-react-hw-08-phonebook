@@ -9,8 +9,7 @@ export const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-	 background-color: rgba(20, 28, 36, 1);
-	 color: rgba(171, 171, 171, 1);
+	 color: rgb(76, 75, 75);
   }
 
   code {
@@ -20,7 +19,6 @@ export const GlobalStyle = createGlobalStyle`
 
   h1,h2,h3,h4,h5,h6 {
     margin: 0;
-	 color: rgba(255, 255, 255, 1);
   }
   p {
     margin: 0;
@@ -31,4 +29,15 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     list-style: none;
   }
+
+  section{
+	width: 50%;
+	margin: 100px auto 30px;
+  }
+  @media (max-width: 700px) {
+  section {
+	width: 100%
+  }
+}
 `;
+

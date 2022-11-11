@@ -1,11 +1,12 @@
 .box{
-	border-top: 1px solid black;
 	height: 60px;
 	text-align: center;
 	padding: 20px;
+	background-color: rgb(76, 75, 75);
+	color: #fff;
 }
 
 .link{
-	color: black;
+	color: #fff;
 	margin-left: 5px;
 }

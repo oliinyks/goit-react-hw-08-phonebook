@@ -1,15 +1,15 @@
 import { useFetchContactsQuery } from 'redux/ContactSlice';
-import Form from 'components/Form';
-import ContactList from 'components/ContactList';
-import Filter from 'components/Filter';
+import Form from 'components/ContactsComponents/Form';
+import ContactList from 'components/ContactsComponents/ContactList';
+import Filter from 'components/ContactsComponents/Filter';
 import css from './Contacts.module.css';
 
 export default function Contacts() {
   const { data: contacts = [], isLoading } = useFetchContactsQuery();
 
   return (
-    <section className={css.phonebook}>
-      <h1 className={css.title}>Your amazing phonebook</h1>
+    <section>
+      <h1 className={css.title}>Your phonebook</h1>
       <Form />
       <h2 className={css.subtitle}>Contacts</h2>
       {contacts.length > 0 ? (

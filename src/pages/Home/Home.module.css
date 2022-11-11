@@ -1,0 +1,78 @@
+.imgBox {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-transform: uppercase;
+  cursor: pointer;
+  color: transparent;
+}
+
+h1 span:nth-child(1) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: 0.5s;
+	clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+	overflow: hidden;
+
+	color: #fff;
+	background-color: rgb(76, 75, 75);
+}
+
+
+h1:hover span:nth-child(1) {
+	transform: translateY(-18px);
+}
+h1 span:nth-child(2) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: 0.5s;
+	clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+	overflow: hidden;
+
+	color: #fff;
+	background-color: rgb(76, 75, 75);
+}
+h1:hover span:nth-child(2) {
+	transform: translateY(18px);
+}
+
+h1 span:nth-child(3) {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%) scaleY(0);
+	width: 91%;
+	color: #000;
+	background: #fff;
+	font-size: 0.35em;
+	text-align: center;
+	padding-left: 20px;
+	margin-left: 5px;
+	transition: 0.5s;
+}
+h1:hover span:nth-child(3) {
+transform: translateY(-50%) scaleY(1);
+}
+
+@media (max-width: 700px) {
+  .img + .img {
+    display: none;
+  }
+}
+
+.img + .img {
+  margin-left: 5px;
+}
+
+.img {
+  height: 100vh;
+}

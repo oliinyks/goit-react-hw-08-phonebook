@@ -1,0 +1,13 @@
+.item {
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px dashed black;
+ }
+.button{
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}

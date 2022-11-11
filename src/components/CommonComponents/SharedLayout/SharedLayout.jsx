@@ -1,27 +1,28 @@
 import { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { GlobalStyle } from 'constants/GlobalStyle';
 import Footer from '../Footer';
 import { ToastContainer } from 'react-toastify';
+import AppBar from 'components/CommonComponents/AppBar';
 import 'react-toastify/dist/ReactToastify.min.css';
+import css from './SharedLayout.module.css';
 
 export default function SharedLayout() {
   return (
     <>
-      <div>
-        <header>
-          <nav>
-            <Link to="/" end> Home</Link>
-            <Link to="/contacts">Contacts</Link>
-            <Link to="/login">Lodin</Link>
-            <Link to="/register">Register</Link>
-          </nav>
+        <header className={css.header}>
+          <AppBar />
         </header>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Outlet />
-        </Suspense>
+
+      <div className={css.container}>
+        <main className={css.main}>
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
+        </main>
         <GlobalStyle />
       </div>
+
       <Footer />
       <ToastContainer theme="dark" autoClose={3000} />
     </>

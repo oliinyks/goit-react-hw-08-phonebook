@@ -1,0 +1,11 @@
+.link{
+	text-decoration: none;
+	color: #fff;
+}
+.link + .link {
+	margin-left: 30px;
+}
+.box{
+	display: flex;
+	justify-content: space-around;
+}

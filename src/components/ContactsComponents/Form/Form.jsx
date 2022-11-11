@@ -3,6 +3,7 @@ import {
   useFetchContactsQuery,
   useCreateContactMutation,
 } from 'redux/ContactSlice';
+import Button from 'components/CommonComponents/Button'
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 import css from './Form.module.css';
@@ -94,9 +95,9 @@ export default function Form() {
         required
       />
 
-      <button className={css.button} type="submit" disabled={isLoading}>
+      <Button type="submit" disabled={isLoading}>
         {isLoading ? 'Adding contact...' : 'Add contact'}
-      </button>
+      </Button>
     </form>
   );
 }
