@@ -1,0 +1,74 @@
+import css from './RegisterForm.module.css';
+import Button from 'components/CommonComponents/Button';
+import { nanoid } from 'nanoid';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
+import { Link } from 'react-router-dom';
+
+export default function RegisterForm() {
+  const dispatch = useDispatch();
+
+  const nameInputId = nanoid();
+  const emailInputId = nanoid();
+  const passwordInputId = nanoid();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    dispatch(
+      register({
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+    form.reset();
+  };
+
+  return (
+    <div className={css.box}>
+      <form className={css.formBox} onSubmit={handleSubmit} autoComplete="off">
+        <h2 className={css.title}>Registration</h2>
+        <label className={css.label} htmlFor={nameInputId}>
+          Username
+        </label>
+        <input
+          className={css.input}
+          type="text"
+          name="name"
+          id={nameInputId}
+          required
+        />
+
+        <label className={css.label} htmlFor={emailInputId}>
+          Email
+        </label>
+        <input
+          className={css.input}
+          type="email"
+          name="email"
+          id={emailInputId}
+          pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$"
+          required
+        />
+
+        <label className={css.label} htmlFor={passwordInputId}>
+          Password
+        </label>
+        <input
+          className={css.input}
+          type="password"
+          name="password"
+          id={passwordInputId}
+          required
+        />
+        <div className={css.buttonBox}>
+          <Button type="submit">Register</Button>
+          <Link className={css.link} to="/">
+            <Button type="button">Go Back</Button>
+          </Link>
+        </div>
+      </form>
+    </div>
+  );
+}

@@ -14,14 +14,12 @@ export default function SharedLayout() {
           <AppBar />
         </header>
 
-      <div className={css.container}>
         <main className={css.main}>
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>
         </main>
         <GlobalStyle />
-      </div>
 
       <Footer />
       <ToastContainer theme="dark" autoClose={3000} pauseOnFocusLoss={false} toastStyle={{ backgroundColor: "rgb(76, 75, 75)" }}/>

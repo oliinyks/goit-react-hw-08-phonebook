@@ -1,11 +1,16 @@
-.link{
-	text-decoration: none;
-	color: #fff;
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+.link:active,
+.link:hover{
+  color: #fff;
+  border-bottom: 1px solid #fff;
 }
 .link + .link {
-	margin-left: 30px;
+  margin-left: 30px;
 }
-.box{
-	display: flex;
-	justify-content: space-around;
+.box {
+  display: flex;
+  justify-content: space-around;
 }

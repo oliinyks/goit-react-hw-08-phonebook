@@ -1,10 +1,8 @@
-import LoginForm from 'components/LoginComponents/LoginForm';
-import css from './Login.module.css';
+import LoginForm from 'components/LoginForm';
 
 export default function Login() {
 	return (
 		<section>
-			<h2 className={css.title}>Login</h2>
 			<LoginForm/>
 		</section>
 	)

@@ -1,95 +1,45 @@
-.box{
-	position: relative;
-	overflow: hidden;
+.box {
+  position: relative;
+  height: 100vh;
+  background-image: url('https://i.pinimg.com/originals/4b/70/c6/4b70c62557e553a6aea14715038706d6.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
-.imgBox {
-  display: flex;
-  justify-content: center;
-}
-.title {
+.textBox {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
+  text-align: center;
+  padding: 30px;
+  border-radius: 20px;
+  color: #fff;
+  background-color: rgba(76, 75, 75, 0.8);
+}
+.title {
   text-transform: uppercase;
-  cursor: pointer;
-  color: transparent;
-}
-@media (min-width: 700px) {
-	.imgBox {
-		margin: 10px 0;
-	}
-	h1 span:nth-child(1) {
-		position: absolute;
-		top: 0;
-		left: 0;
-		transition: 0.5s;
-		clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
-		overflow: hidden;
-	
-		color: #fff;
-		background-color: rgb(76, 75, 75);
-	}
-	
-	
-	h1:hover span:nth-child(1) {
-		transform: translateY(-18px);
-	}
-	h1 span:nth-child(2) {
-		position: absolute;
-		top: 0;
-		left: 0;
-		transition: 0.5s;
-		clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
-		overflow: hidden;
-	
-		color: #fff;
-		background-color: rgb(76, 75, 75);
-	}
-	h1:hover span:nth-child(2) {
-		transform: translateY(18px);
-	}
-	
-	h1 span:nth-child(3) {
-		position: absolute;
-		top: 50%;
-		left: 0;
-		transform: translateY(-50%) scaleY(0);
-		width: 91%;
-		color: #000;
-		background: #fff;
-		font-size: 0.35em;
-		text-align: center;
-		padding-left: 20px;
-		margin-left: 5px;
-		transition: 0.5s;
-	}
-	h1:hover span:nth-child(3) {
-	transform: translateY(-50%) scaleY(1);
-	}
 }
 
-@media (max-width: 700px) {
-  .img + .img {
-    display: none;
-  }
-  .title{
-	color: #fff;
-  }
-  h1 span:nth-child(2){
-	margin-left: 10px;
-  }
-  h1 span:nth-child(1){
-	margin-left: 10px;
-  }
+.button {
+  padding: 5px 10px;
+  background-color: rgb(76, 75, 75);
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
+.button:hover,
+.button:focus {
+  background-color: rgb(45, 45, 45);
+}
+.button + .button {
+  margin-left: 10px;
 }
 
-.img + .img {
-  margin-left: 5px;
+.link {
+  text-decoration: none;
+  color: #fff;
 }
-
-.img {
-  height: 100vh;
+.link:hover {
+  color: #fff;
 }
-
