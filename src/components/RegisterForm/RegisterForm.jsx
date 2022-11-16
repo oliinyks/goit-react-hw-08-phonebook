@@ -1,12 +1,16 @@
 import css from './RegisterForm.module.css';
 import Button from 'components/CommonComponents/Button';
 import { nanoid } from 'nanoid';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import {selectIsLoggedIn} from 'redux/auth/selectors';
 
 export default function RegisterForm() {
   const dispatch = useDispatch();
+	const isLoginSuccess = useSelector(selectIsLoggedIn);
+	const navigate = useNavigate();
 
   const nameInputId = nanoid();
   const emailInputId = nanoid();
@@ -22,7 +26,11 @@ export default function RegisterForm() {
         password: form.elements.password.value,
       })
     );
-    form.reset();
+
+	 if (isLoginSuccess) {
+		form.reset();
+		navigate("/contacts", { replace: true });
+	 }
   };
 
   return (
@@ -63,10 +71,10 @@ export default function RegisterForm() {
           required
         />
         <div className={css.buttonBox}>
-          <Button type="submit">Register</Button>
           <Link className={css.link} to="/">
             <Button type="button">Go Back</Button>
           </Link>
+          <button className={css.button} type="submit">Register</button>
         </div>
       </form>
     </div>

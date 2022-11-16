@@ -11,11 +11,10 @@ const Contacts = lazy(() => import('pages/Contacts'));
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
-
       <Route path="/" element={<SharedLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="*" element={<Home />} />
       </Route>

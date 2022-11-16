@@ -64,7 +64,8 @@ export default function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+	<div className={css.box}>
+    <form onSubmit={handleSubmit} className={css.box}>
       <label className={css.label} htmlFor={nameInputId}>
         Name
       </label>
@@ -99,5 +100,6 @@ export default function Form() {
         {isLoading ? 'Adding contact...' : 'Add contact'}
       </Button>
     </form>
+	</div>
   );
 }

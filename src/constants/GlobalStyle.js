@@ -31,12 +31,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   section{
-	width: 50%;
+	padding:  0 20px;
+	width: 60%;
 	margin: 100px auto 30px;
   }
   @media (max-width: 700px) {
   section {
-	width: 100%
+	width: 90%
   }
 }
 `;

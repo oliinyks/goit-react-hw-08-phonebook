@@ -6,16 +6,12 @@ export default function Home() {
     <div className={css.box}>
       <div className={css.textBox}>
         <h1 className={css.title}>Phonebook</h1>
-        <button className={css.button}>
-          <Link className={css.link} to="/login">
-            Log in
-          </Link>
-        </button>
-        <button className={css.button}>
-          <Link className={css.link} to="/register">
-            Sign up
-          </Link>
-        </button>
+        <Link className={css.link} to="/login">
+          <button className={css.button}>Log in</button>
+        </Link>
+        <Link className={css.link} to="/register">
+          <button className={css.button}>Sign up</button>
+        </Link>
       </div>
     </div>
   );

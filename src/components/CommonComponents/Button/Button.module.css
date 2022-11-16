@@ -1,7 +1,7 @@
 .button {
 	margin: 10px 0 20px;
 	padding: 8px 10px;
-	border: 1px solid black;
+	border: 1px solid rgb(76, 75, 75);
 	border-radius: 20px;
 	cursor: pointer;
 	color: rgb(76, 75, 75);
@@ -11,4 +11,5 @@
  .button:focus {
 	background-color: rgb(76, 75, 75);
 	color: white;
+	border: 1px solid #fff;
  }
