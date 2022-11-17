@@ -1,12 +1,12 @@
 import React from 'react';
-import { getStatusFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/contacts/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/FilterSlice';
 import { nanoid } from 'nanoid';
 import css from './Filter.module.css';
 
 export default function Filter() {
-  const filter = useSelector(getStatusFilter);
+	const filter = useSelector(selectFilter);
   const nameFilterId = nanoid();
   const dispatch = useDispatch();
 

@@ -6,6 +6,7 @@ import { register } from 'redux/auth/operations';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import {selectIsLoggedIn} from 'redux/auth/selectors';
+import { useEffect } from 'react';
 
 export default function RegisterForm() {
   const dispatch = useDispatch();
@@ -15,6 +16,12 @@ export default function RegisterForm() {
   const nameInputId = nanoid();
   const emailInputId = nanoid();
   const passwordInputId = nanoid();
+
+  useEffect(()=>{
+	if (isLoginSuccess) {
+		 navigate("/contacts", { replace: true });
+	 }
+  },[isLoginSuccess, navigate])
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -29,7 +36,6 @@ export default function RegisterForm() {
 
 	 if (isLoginSuccess) {
 		form.reset();
-		navigate("/contacts", { replace: true });
 	 }
   };
 

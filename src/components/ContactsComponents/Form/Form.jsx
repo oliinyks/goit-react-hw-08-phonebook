@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import {
-  useFetchContactsQuery,
-  useCreateContactMutation,
-} from 'redux/ContactSlice';
-import Button from 'components/CommonComponents/Button'
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllContacts, selectLoading } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
+import Button from 'components/CommonComponents/Button';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import css from './Form.module.css';
 
 export default function Form() {
-  const { data: contacts } = useFetchContactsQuery();
-  const [createContact, { isLoading }] = useCreateContactMutation();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const contacts  = useSelector(selectAllContacts);
+  const isLoading = useSelector(selectLoading);
+  const dispatch = useDispatch();
 
   const nameInputId = nanoid();
   const numberInputId = nanoid();
@@ -41,18 +41,15 @@ export default function Form() {
       contactName => contactName.toLowerCase() === name.toLowerCase()
     );
     if (filterName) {
-      return toast.error(
-        'You already have a contact with that name'
-      );
+      return toast.error('You already have a contact with that name');
     }
 
     const newContact = {
-      id: nanoid(),
       name,
       number,
     };
 
-    createContact(newContact);
+    dispatch(addContact(newContact));
     toast.success('You have just created a new contact');
 
     reset();
@@ -64,42 +61,42 @@ export default function Form() {
   };
 
   return (
-	<div className={css.box}>
-    <form onSubmit={handleSubmit} className={css.box}>
-      <label className={css.label} htmlFor={nameInputId}>
-        Name
-      </label>
-      <input
-        className={css.input}
-        type="text"
-        value={name}
-        onChange={handleInputChange}
-        name="name"
-        id={nameInputId}
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-      />
+    <div className={css.box}>
+      <form onSubmit={handleSubmit} className={css.box}>
+        <label className={css.label} htmlFor={nameInputId}>
+          Name
+        </label>
+        <input
+          className={css.input}
+          type="text"
+          value={name}
+          onChange={handleInputChange}
+          name="name"
+          id={nameInputId}
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+        />
 
-      <label className={css.label} htmlFor={numberInputId}>
-        Number
-      </label>
-      <input
-        className={css.input}
-        type="tel"
-        value={number}
-        onChange={handleInputChange}
-        name="number"
-        id={numberInputId}
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-      />
+        <label className={css.label} htmlFor={numberInputId}>
+          Number
+        </label>
+        <input
+          className={css.input}
+          type="tel"
+          value={number}
+          onChange={handleInputChange}
+          name="number"
+          id={numberInputId}
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+        />
 
-      <Button type="submit" disabled={isLoading}>
-        {isLoading ? 'Adding contact...' : 'Add contact'}
-      </Button>
-    </form>
-	</div>
+        <Button type="submit" disabled={isLoading}>
+          {isLoading ? 'Adding contact...' : 'Add contact'}
+        </Button>
+      </form>
+    </div>
   );
 }

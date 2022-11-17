@@ -6,6 +6,7 @@ import { logIn } from 'redux/auth/operations';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import {selectIsLoggedIn} from 'redux/auth/selectors';
+import { useEffect } from 'react';
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -15,17 +16,21 @@ export default function LoginForm() {
   const emailInputId = nanoid();
   const passwordInputId = nanoid();
 
+  useEffect(()=>{
+	if (isLoginSuccess) {
+		 navigate("/contacts", { replace: true });
+	 }
+  },[isLoginSuccess, navigate])
+
   const handleSubmit = e => {
     e.preventDefault();
 	 const form = e.currentTarget;
-    dispatch(logIn({ 
+	dispatch(logIn({ 
 		email: form.elements.email.value, 
 		password: form.elements.password.value,  
 	}));
-
-     if (isLoginSuccess) {
-		form.reset();
-		 navigate("/contacts", { replace: true });
+	if (isLoginSuccess) {
+			form.reset();
 	 }
   };
 
