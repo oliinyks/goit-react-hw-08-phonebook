@@ -6,4 +6,5 @@
 .main{
 	background-color: #fff;
 	color: rgb(76, 75, 75);
+	min-height: calc(100vh - 30px);
 }
