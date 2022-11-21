@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectAllContacts, selectLoading } from 'redux/contacts/selectors';
+import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
+import {useContacts} from 'hooks/useContacts'
 import Button from 'components/CommonComponents/Button';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
@@ -10,8 +10,8 @@ import css from './Form.module.css';
 export default function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const contacts  = useSelector(selectAllContacts);
-  const isLoading = useSelector(selectLoading);
+  const {isLoading} = useContacts;
+  const {contacts}  = useContacts;
   const dispatch = useDispatch();
 
   const nameInputId = nanoid();

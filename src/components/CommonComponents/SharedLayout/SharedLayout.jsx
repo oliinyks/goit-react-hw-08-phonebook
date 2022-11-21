@@ -5,6 +5,7 @@ import Footer from '../Footer';
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
+import Loader from '../Loader'
 import 'react-toastify/dist/ReactToastify.min.css';
 import UserMenu from '../../UserMenu';
 import css from './SharedLayout.module.css';
@@ -22,7 +23,7 @@ export default function SharedLayout() {
         </>
       )}
       <main className={css.main}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader/>}>
           <Outlet />
         </Suspense>
       </main>

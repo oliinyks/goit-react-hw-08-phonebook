@@ -1,27 +1,18 @@
 import css from './RegisterForm.module.css';
 import Button from 'components/CommonComponents/Button';
 import { nanoid } from 'nanoid';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import {selectIsLoggedIn} from 'redux/auth/selectors';
-import { useEffect } from 'react';
+import {useAuth} from 'hooks/useAuth';
 
 export default function RegisterForm() {
   const dispatch = useDispatch();
-	const isLoginSuccess = useSelector(selectIsLoggedIn);
-	const navigate = useNavigate();
+  const {isLoggedIn} = useAuth;
 
   const nameInputId = nanoid();
   const emailInputId = nanoid();
   const passwordInputId = nanoid();
-
-  useEffect(()=>{
-	if (isLoginSuccess) {
-		 navigate("/contacts", { replace: true });
-	 }
-  },[isLoginSuccess, navigate])
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -34,7 +25,7 @@ export default function RegisterForm() {
       })
     );
 
-	 if (isLoginSuccess) {
+	 if (isLoggedIn) {
 		form.reset();
 	 }
   };

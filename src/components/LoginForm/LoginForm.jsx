@@ -1,26 +1,17 @@
 import css from './LoginForm.module.css';
 import { nanoid } from 'nanoid';
 import Button from 'components/CommonComponents/Button';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import {selectIsLoggedIn} from 'redux/auth/selectors';
-import { useEffect } from 'react';
+import {useAuth} from 'hooks/useAuth';
 
 export default function LoginForm() {
   const dispatch = useDispatch();
-  const isLoginSuccess = useSelector(selectIsLoggedIn);
-  const navigate = useNavigate();
+  const {isLoggedIn} = useAuth;
 
   const emailInputId = nanoid();
   const passwordInputId = nanoid();
-
-  useEffect(()=>{
-	if (isLoginSuccess) {
-		 navigate("/contacts", { replace: true });
-	 }
-  },[isLoginSuccess, navigate])
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -29,7 +20,7 @@ export default function LoginForm() {
 		email: form.elements.email.value, 
 		password: form.elements.password.value,  
 	}));
-	if (isLoginSuccess) {
+	if (isLoggedIn) {
 			form.reset();
 	 }
   };
