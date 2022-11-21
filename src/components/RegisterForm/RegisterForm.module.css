@@ -28,15 +28,46 @@
  .input {
 	display: block;
 	width: 230px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	border: 1px solid rgb(76, 75, 75);
 	border-radius: 20px;
-	padding: 10px;
+	padding: 10px 40px 10px 20px;
  }
  @media (min-width: 700px) { 
 	.input{
 		width: 300px;
 	}
+}
+.validation{
+	margin: 10px 0;
+	opacity: .5;
+	transition: .3s;
+}
+.validationTitle{
+	margin-left: 30px;
+}
+.faTimes{
+opacity: 0;
+}
+.faCheck{
+opacity: 1;
+}
+.icon{
+	position: absolute;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	margin-top: 2px;
+}
+.showHide{
+transform: translateX(200px) translateY(-44px);
+cursor: pointer;
+color: #000;
+}
+@media (min-width: 700px) { 
+	.showHide{
+		transform: translateX(260px) translateY(-44px);
+		}
 }
  .buttonBox{
 	display: flex;
