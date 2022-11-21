@@ -7,6 +7,7 @@ import css from './ContactList.module.css';
 
 export default function ContactList() {
   const filter = useSelector(getStatusFilter);
+  console.log("tr", filter)
   const { contacts } = useContacts();
 
   const contactsList = () => {
@@ -20,7 +21,7 @@ export default function ContactList() {
   return (
     <>
       <ul className={css.items}>
-        {contactsList.map(contact => (
+        {contactsList().map(contact => (
           <OneContact key={contact.id} {...contact} />
         ))}
       </ul>
