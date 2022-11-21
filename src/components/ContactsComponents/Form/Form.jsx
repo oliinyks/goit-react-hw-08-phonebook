@@ -11,7 +11,7 @@ export default function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const {isLoading} = useContacts;
-  const {contacts}  = useContacts;
+  const {contacts = []}  = useContacts;
   const dispatch = useDispatch();
 
   const nameInputId = nanoid();

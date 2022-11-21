@@ -7,12 +7,10 @@ import css from './ContactList.module.css';
 
 export default function ContactList() {
   const filter = useSelector(getStatusFilter);
-  console.log("tr", filter)
-  const { contacts } = useContacts();
+  const { contacts = [] } = useContacts();
 
   const contactsList = () => {
     const normalizedFilter = filter.toLowerCase();
-
     return contacts.filter(contact => {
       return contact.name.toLowerCase().includes(normalizedFilter);
     });
