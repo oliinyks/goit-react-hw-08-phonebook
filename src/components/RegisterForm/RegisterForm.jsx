@@ -195,12 +195,12 @@ export default function RegisterForm() {
         </p>
 
         <div className={css.buttonBox}>
-          <Link className={css.link} to="/">
-            <Button type="button">Go Back</Button>
-          </Link>
           <button className={css.button} type="submit">
             Register
           </button>
+          <Link className={css.link} to="/">
+            <Button type="button">Go Back</Button>
+          </Link>
         </div>
       </form>
     </div>

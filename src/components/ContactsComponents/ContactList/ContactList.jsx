@@ -1,13 +1,13 @@
 import React from 'react';
 import OneContact from '../OneContact';
-import { useContacts } from 'hooks/useContacts';
+import { selectAllContacts } from 'redux/contacts/selectors';
 import { getStatusFilter } from 'redux/filter/selectors';
 import { useSelector } from 'react-redux';
 import css from './ContactList.module.css';
 
 export default function ContactList() {
   const filter = useSelector(getStatusFilter);
-  const { contacts = [] } = useContacts();
+  const contacts = useSelector(selectAllContacts);
 
   const contactsList = () => {
     const normalizedFilter = filter.toLowerCase();

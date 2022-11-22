@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
+import { NotFound } from 'pages/NotFound/NotFound';
 import Loader from 'components/CommonComponents/Loader';
 
 const Home = lazy(() => import('pages/Home'));
@@ -41,7 +42,7 @@ export default function App() {
           <Route path="contacts" element={<Contacts />} />
         </Route>
 
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

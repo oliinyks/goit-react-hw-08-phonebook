@@ -5,13 +5,15 @@ import {useContacts} from 'hooks/useContacts'
 import Button from 'components/CommonComponents/Button';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { selectAllContacts } from 'redux/contacts/selectors';
 import css from './Form.module.css';
 
 export default function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const {isLoading} = useContacts;
-  const {contacts = []}  = useContacts;
+  const contacts = useSelector(selectAllContacts);
   const dispatch = useDispatch();
 
   const nameInputId = nanoid();

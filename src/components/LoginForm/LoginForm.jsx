@@ -51,9 +51,9 @@ export default function LoginForm() {
         required
       />
 		<div className={css.buttonBox}>
+      <button className={css.button} type="submit">Log In</button>
       <Link className={css.link} to="/">
 		<Button type="button">Go Back</Button></Link>
-      <button className={css.button} type="submit">Log In</button>
 		</div>
     </form>
 	</div>
